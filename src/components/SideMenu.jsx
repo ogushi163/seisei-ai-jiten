@@ -52,12 +52,12 @@ export default function SideMenu({ isOpen, onClose }) {
                         className={`accordion-toggle${openSection === "favorites" ? " open" : ""}`}
                         onClick={() => toggleSection("favorites")}
                     >
-                        <span>ブックマーク</span>
+                        <span>お気に入り</span>
                         <span className="accordion-arrow">&gt;</span>
                     </button>
                     <div className={`accordion-panel${openSection === "favorites" ? " open" : ""}`}>
                         {favoriteItems.length === 0 ? (
-                            <p className="menu-empty">ブックマークはまだありません。</p>
+                            <p className="menu-empty">お気に入りはまだありません。</p>
                         ) : (
                             favoriteItems.map(key => (
                                 <button

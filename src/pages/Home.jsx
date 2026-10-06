@@ -26,10 +26,10 @@ export default function Home() {
     return (
         <main className="container">
             <section>
-                <h2 className="section-title">ブックマーク</h2>
+                <h2 className="section-title">お気に入り</h2>
                 <div className="grid">
                     {favoriteKeys.length === 0 ? (
-                        <p className="empty-message">ブックマークに登録された用語はまだありません。</p>
+                        <p className="empty-message">お気に入りに登録された用語はまだありません。</p>
                     ) : (
                         visibleFavoriteKeys.map(key => (
                             <MiniTermCard key={key} termKey={key} term={dictionary[key]} />
