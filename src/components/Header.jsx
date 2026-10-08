@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import useSearchHistory from "../hooks/useSearchHistory";
 import SideMenu from "./SideMenu";
@@ -8,6 +8,7 @@ export default function Header({ showSearch = true }) {
     const navigate = useNavigate();
     const [keyword, setKeyword] = useState("");
     const [menuOpen, setMenuOpen] = useState(false);
+    const searchInputRef = useRef(null);
     const { history, addToHistory, removeFromHistory, clearHistory } = useSearchHistory();
 
     const runSearch = word => {
@@ -46,13 +47,29 @@ export default function Header({ showSearch = true }) {
                     <>
                         <h1><Link to="/">生成AI辞典</Link></h1>
                         <div className="search-area">
-                            <input
-                                type="text"
-                                value={keyword}
-                                placeholder="用語を入力"
-                                onChange={event => setKeyword(event.target.value)}
-                                onKeyDown={handleKeyDown}
-                            />
+                            <div className="search-input-wrap">
+                                <input
+                                    ref={searchInputRef}
+                                    type="text"
+                                    value={keyword}
+                                    placeholder="用語を入力"
+                                    onChange={event => setKeyword(event.target.value)}
+                                    onKeyDown={handleKeyDown}
+                                />
+                                {keyword && (
+                                    <button
+                                        type="button"
+                                        className="search-clear"
+                                        aria-label="入力を全消去"
+                                        onClick={() => {
+                                            setKeyword("");
+                                            searchInputRef.current?.focus();
+                                        }}
+                                    >
+                                        ×
+                                    </button>
+                                )}
+                            </div>
                             <button onClick={handleSearchClick}>検索</button>
                         </div>
                         <div className="search-history">
