@@ -32,7 +32,7 @@ export default function Header({ showSearch = true }) {
 
     return (
         <>
-            <header>
+            <header className={showSearch ? undefined : "header-compact"}>
                 <button
                     type="button"
                     className="menu-btn"

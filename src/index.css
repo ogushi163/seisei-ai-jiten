@@ -38,6 +38,20 @@ header{
     text-align:center;
 }
 
+header.header-compact{
+    padding:14px 20px;
+}
+
+header.header-compact h3{
+    margin:0;
+    line-height:1.4;
+}
+
+header.header-compact .menu-btn{
+    top:50%;
+    transform:translateY(-50%);
+}
+
 header h1{
     font-size:3rem;
     margin-bottom:10px;
