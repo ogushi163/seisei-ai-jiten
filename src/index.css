@@ -159,7 +159,32 @@ header p{
 .filter-bar{
     display:flex;
     justify-content:flex-end;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:12px;
     margin-bottom:16px;
+}
+
+.sort-label{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    font-weight:bold;
+    color:#475569;
+}
+
+.sort-select{
+    padding:9px 12px;
+    border:1px solid var(--primary);
+    border-radius:999px;
+    background:white;
+    color:var(--primary);
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.sort-select:hover{
+    background:#eff6ff;
 }
 
 .filter-btn{
