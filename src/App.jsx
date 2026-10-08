@@ -1,4 +1,5 @@
-import { useEffect, useLayoutEffect, useState } from "react";
+import { useLayoutEffect } from "react";
+import { createPortal } from "react-dom";
 import { HashRouter, Route, Routes, useLocation } from "react-router-dom";
 import Header from "./components/Header";
 import Home from "./pages/Home";
@@ -28,24 +29,31 @@ function ScrollToTop() {
 }
 
 function ScrollTopButton() {
-    const [visible, setVisible] = useState(false);
-
-    useEffect(() => {
-        const onScroll = () => setVisible(window.scrollY > 200);
-        onScroll();
-        window.addEventListener("scroll", onScroll, { passive: true });
-        return () => window.removeEventListener("scroll", onScroll);
-    }, []);
-
-    return (
+    // body 直下に描画し、親要素の影響を受けず常に画面右下に固定する
+    return createPortal(
         <button
             type="button"
-            className={`scroll-top-btn${visible ? " visible" : ""}`}
             aria-label="ページの先頭へ戻る"
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            style={{
+                position: "fixed",
+                right: "20px",
+                bottom: "20px",
+                width: "48px",
+                height: "48px",
+                border: "none",
+                borderRadius: "50%",
+                background: "#333",
+                color: "#fff",
+                fontSize: "24px",
+                cursor: "pointer",
+                boxShadow: "0 2px 8px rgba(0,0,0,.3)",
+                zIndex: 2147483647,
+            }}
         >
             ↑
-        </button>
+        </button>,
+        document.body
     );
 }
 
