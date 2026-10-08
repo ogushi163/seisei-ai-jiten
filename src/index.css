@@ -156,6 +156,36 @@ header p{
     color:#f59e0b;
 }
 
+.filter-bar{
+    display:flex;
+    justify-content:flex-end;
+    margin-bottom:16px;
+}
+
+.filter-btn{
+    padding:10px 20px;
+    border:1px solid #f59e0b;
+    border-radius:999px;
+    background:white;
+    color:#b45309;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.2s;
+}
+
+.filter-btn:hover{
+    background:#fef3c7;
+}
+
+.filter-btn.active{
+    background:#f59e0b;
+    color:white;
+}
+
+.filter-btn.active:hover{
+    background:#d97706;
+}
+
 .empty-message{
     color:#64748b;
 }
