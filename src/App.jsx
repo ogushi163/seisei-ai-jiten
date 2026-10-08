@@ -1,4 +1,4 @@
-import { useLayoutEffect, useState } from "react";
+import { useLayoutEffect } from "react";
 import { createPortal } from "react-dom";
 import { HashRouter, Route, Routes, useLocation } from "react-router-dom";
 import Header from "./components/Header";
@@ -29,41 +29,13 @@ function ScrollToTop() {
 }
 
 function ScrollTopButton() {
-    const [hovered, setHovered] = useState(false);
-    const [pressed, setPressed] = useState(false);
-
     // body 直下に描画し、親要素の影響を受けず常に画面右下に固定する
     return createPortal(
         <button
             type="button"
+            className="scroll-top-btn"
             aria-label="ページの先頭へ戻る"
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            onMouseEnter={() => setHovered(true)}
-            onMouseLeave={() => {
-                setHovered(false);
-                setPressed(false);
-            }}
-            onMouseDown={() => setPressed(true)}
-            onMouseUp={() => setPressed(false)}
-            style={{
-                transition: "background .15s, transform .1s, box-shadow .15s",
-                transform: pressed ? "scale(0.88)" : "scale(1)",
-                position: "fixed",
-                right: "20px",
-                bottom: "20px",
-                width: "48px",
-                height: "48px",
-                border: "none",
-                borderRadius: "50%",
-                background: pressed ? "#1d4ed8" : hovered ? "#2563eb" : "#333",
-                color: "#fff",
-                fontSize: "24px",
-                cursor: "pointer",
-                boxShadow: pressed
-                    ? "0 1px 3px rgba(0,0,0,.4)"
-                    : "0 2px 8px rgba(0,0,0,.3)",
-                zIndex: 2147483647,
-            }}
         >
             ↑
         </button>,
