@@ -35,7 +35,7 @@ export default function TermCard({ termKey, term }) {
             <h2>{term.title}</h2>
             <p><strong>カテゴリ：</strong>{term.category}</p>
             <br />
-            <p>{term.description}</p>
+            <p className="term-description">{term.description}</p>
 
             {relatedKeys.length > 0 && (
                 <div className="related-terms">

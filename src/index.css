@@ -244,6 +244,15 @@ header p{
     padding-right:36px;
 }
 
+/* 説明文：行末を揃え、「文章生成」のような語の途中で折り返さない */
+.term-description{
+    text-align:justify;
+    text-justify:inter-character;
+    line-break:strict;
+    overflow-wrap:break-word;
+    word-break:auto-phrase;
+}
+
 .favorite-card{
     cursor:pointer;
 }
