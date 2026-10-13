@@ -43,10 +43,10 @@ function ScrollTopButton() {
     );
 }
 
-function Layout({ children, showSearch }) {
+function Layout({ children, compact = false }) {
     return (
         <>
-            <Header showSearch={showSearch} />
+            <Header compact={compact} />
             {children}
         </>
     );
@@ -62,7 +62,7 @@ export default function App() {
                         <Route
                             path="/"
                             element={
-                                <Layout showSearch={true}>
+                                <Layout>
                                     <Home />
                                 </Layout>
                             }
@@ -70,7 +70,7 @@ export default function App() {
                         <Route
                             path="/results"
                             element={
-                                <Layout showSearch={false}>
+                                <Layout compact={true}>
                                     <Results />
                                 </Layout>
                             }

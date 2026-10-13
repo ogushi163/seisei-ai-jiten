@@ -39,17 +39,70 @@ header{
 }
 
 header.header-compact{
-    padding:14px 20px;
-}
-
-header.header-compact h3{
-    margin:0;
-    line-height:1.4;
+    padding:10px 20px 10px 76px;
+    text-align:left;
 }
 
 header.header-compact .menu-btn{
     top:50%;
     transform:translateY(-50%);
+}
+
+.header-compact-inner{
+    max-width:1200px;
+    margin:0 auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:16px;
+    flex-wrap:wrap;
+}
+
+.header-compact-title{
+    margin:0;
+    font-size:1.3rem;
+    white-space:nowrap;
+    line-height:1.2;
+}
+
+.search-area.search-area-compact{
+    margin:0;
+    flex:1;
+    max-width:560px;
+    min-width:240px;
+    gap:8px;
+}
+
+.search-area.search-area-compact input{
+    padding:8px 14px;
+    font-size:14px;
+    border-radius:8px;
+}
+
+.search-area.search-area-compact button{
+    padding:8px 18px;
+    font-size:14px;
+    border-radius:8px;
+    white-space:nowrap;
+}
+
+.search-area.search-area-compact .search-clear{
+    width:22px;
+    height:22px;
+    font-size:15px;
+    right:6px;
+}
+
+@media (max-width: 600px){
+    header.header-compact{
+        padding:10px 16px 12px 64px;
+    }
+    .header-compact-title{
+        font-size:1.1rem;
+    }
+    .search-area.search-area-compact{
+        min-width:100%;
+    }
 }
 
 header h1{
