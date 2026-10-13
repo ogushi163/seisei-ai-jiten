@@ -79,18 +79,22 @@ header.header-compact .menu-btn{
     border-radius:8px;
 }
 
-.search-area.search-area-compact button{
+.search-area.search-area-compact .search-submit-btn{
     padding:8px 18px;
     font-size:14px;
     border-radius:8px;
     white-space:nowrap;
 }
 
-.search-area.search-area-compact .search-clear{
+.search-area.search-area-compact .search-clear-btn{
     width:22px;
     height:22px;
-    font-size:15px;
-    right:6px;
+    right:8px;
+}
+
+.search-area.search-area-compact .search-clear-btn svg{
+    width:12px;
+    height:12px;
 }
 
 @media (max-width: 600px){
@@ -140,32 +144,38 @@ header p{
 
 .search-input-wrap input{
     width:100%;
-    padding-right:44px;
+    padding-right:40px;
 }
 
-.search-area .search-clear{
+.search-clear-btn{
     position:absolute;
-    right:8px;
+    right:10px;
     top:50%;
     transform:translateY(-50%);
-    width:28px;
-    height:28px;
+    width:24px;
+    height:24px;
     padding:0;
+    border:none;
     border-radius:50%;
     background:#e2e8f0;
-    color:#475569;
-    font-size:18px;
+    color:#64748b;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    transition:background 0.15s, color 0.15s, transform 0.1s;
     line-height:1;
 }
 
-.search-area .search-clear:hover{
+.search-clear-btn:hover{
     background:#cbd5e1;
-    opacity:1;
+    color:#334155;
 }
 
-.search-area .search-clear:active{
+.search-clear-btn:active{
     background:#94a3b8;
     color:white;
+    transform:translateY(-50%) scale(0.92);
 }
 
 .search-area input{
@@ -176,7 +186,7 @@ header p{
     font-size:16px;
 }
 
-.search-area button{
+.search-area .search-submit-btn{
     padding:15px 25px;
     border:none;
     border-radius:10px;
@@ -184,9 +194,10 @@ header p{
     color:var(--primary);
     font-weight:bold;
     cursor:pointer;
+    transition:opacity 0.2s;
 }
 
-.search-area button:hover{
+.search-area .search-submit-btn:hover{
     opacity:.9;
 }
 
